@@ -1,3 +1,3 @@
-from .ML import GredietDecent,Predict_Result
+from .ML import MachineLearning
 
 print("Running by Stone X Coppsary: version 0.1.0")

@@ -1,21 +1,37 @@
 import numpy as np
-from utils import GredietDecent, Predict_Result
+from utils import MachineLearning
 
-x_train = np.array([1.0, 2.0])   #features
-y_train = np.array([300.0, 500.0])   #target value
+np.random.seed(42)
 
-w_init = 0
-b_init = 0
-# some gradient descent settings
-iterations = 10000
-tmp_alpha = 1.0e-2
+num_samples = 10
+num_features = 10
+
+# 1. Generate Features (X_train)
+x_train = np.zeros((num_samples, num_features))
+
+# Replicating original 4 feature ranges
+x_train[:, 0] = np.random.randint(800, 2500, num_samples) # Size (sqft)
+x_train[:, 1] = np.random.randint(1, 6, num_samples)      # Bedrooms
+x_train[:, 2] = np.random.randint(1, 4, num_samples)      # Floors
+x_train[:, 3] = np.random.randint(10, 81, num_samples)    # Age
+
+# Generating 6 new features (e.g., Lot size, Garage, Garden size, etc.)
+x_train[:, 4:] = np.random.randint(0, 101, (num_samples, 6))
+
+# 2. Generate Target (y_train)
+# Using a linear combination + noise: y = 0.2*Size + 15*Beds - 0.8*Age
+y_train = ( x_train[:, 0] * 0.2 + 
+                x_train[:, 1] * 15 - 
+                x_train[:, 3] * 0.8 + 
+                np.random.normal(0, 10, num_samples))
 
 
+
+tmp_alpha = 5.0e-7
+interations = 1000
 
 # run gradient descent
-gd = GredietDecent(x_train ,y_train, w_init, b_init, tmp_alpha, iterations)
-w_final, b_final, J_hist, p_hist = gd.gradient_descent()
-print(f"(w,b) found by gradient descent: ({w_final:8.4f},{b_final:8.4f})")
+model = MachineLearning()
 
-predictions = Predict_Result(np.array([1.0]), w_final, b_final)
-print(f"Predictions: {predictions}")
+model.InputtwofeatureData(x_train, y_train, tmp_alpha, interations)
+model.OutputResult(x_train)

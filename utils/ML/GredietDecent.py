@@ -1,4 +1,5 @@
 import math, copy
+import numpy as np
 
 class GredietDecent():
     def __init__(self, x, y, w_in, b_in, alpha, num_iters):
@@ -20,15 +21,13 @@ class GredietDecent():
             total_cost (scalar): The cost of using w,b as the parameters for linear regression to
                                 fit the data points in x and y
         """
-        m = x.shape[0] 
-        cost = 0
-        
-        for i in range(m):
-            f_wb = w * x[i] + b
-            cost = cost + (f_wb - y[i])**2
-        total_cost = 1 / (2 * m) * cost
-
-        return total_cost
+        m = x.shape[0]
+        cost = 0.0
+        for i in range(m):                                
+            f_wb_i = np.dot(x[i], w) + b           #(n,)(n,) = scalar (see np.dot)
+            cost = cost + (f_wb_i - y[i])**2       #scalar
+        cost = cost / (2 * m)                      #scalar    
+        return cost
 
     def compute_gradient(self, x, y, w, b): 
         """
@@ -47,18 +46,17 @@ class GredietDecent():
         """
         
         # Number of training examples
-        m = x.shape[0]    
-        dj_dw = 0
-        dj_db = 0
-        
-        for i in range(m):  
-            f_wb = w * x[i] + b 
-            dj_dw_i = (f_wb - y[i]) * x[i] 
-            dj_db_i = f_wb - y[i] 
-            dj_db += dj_db_i
-            dj_dw += dj_dw_i 
-        dj_dw = dj_dw / m 
-        dj_db = dj_db / m 
+        m,n = x.shape           #(number of examples, number of features)
+        dj_dw = np.zeros((n,))
+        dj_db = 0.
+
+        for i in range(m):                             
+            err = (np.dot(x[i], w) + b) - y[i]   
+            for j in range(n):                         
+                dj_dw[j] = dj_dw[j] + err * x[i, j]    
+            dj_db = dj_db + err                        
+        dj_dw = dj_dw / m                                
+        dj_db = dj_db / m                                
             
         return dj_dw, dj_db
 
@@ -85,9 +83,8 @@ class GredietDecent():
         
         # An array to store cost J and w's at each iteration primarily for graphing later
         J_history = []
-        p_history = []
         b = self.b_in
-        w = self.w_in
+        w = copy.deepcopy(self.w_in)
         
         for i in range(self.num_iters):
             # Calculate the gradient and update the parameters using gradient_function
@@ -100,10 +97,10 @@ class GredietDecent():
             # Save cost J at each iteration
             if i<100000:      # prevent resource exhaustion 
                 J_history.append( self.compute_cost(self.x, self.y, w , b))
-                p_history.append([w,b])
-            # Print cost every at intervals 10 times or as many iterations if < 10
-            # if i% math.ceil(self.num_iters/10) == 0:
-            #     print(f"Iteration {i:4}: Cost {J_history[-1]:0.2e} ",
-            #     f"dj_dw: {dj_dw: 0.3e}, dj_db: {dj_db: 0.3e}  ",
-            #     f"w: {w: 0.3e}, b:{b: 0.5e}")
-        return w, b, J_history, p_history
+                # p_history.append([w,b])
+            if i% math.ceil(self.num_iters / 10) == 0:
+                print(f"Iteration {i:4d}: Cost {J_history[-1]:8.2f}   ")
+        return w, b, J_history
+    
+    if __name__ == "__main__":
+        pass
