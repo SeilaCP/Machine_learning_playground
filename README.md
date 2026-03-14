@@ -1,6 +1,6 @@
 <div align="center">
 
-<img width="100%" height="396" alt="Beige Modern Professional General Linkedin Banner" src="https://github.com/user-attachments/assets/afc18f30-fd4b-4299-a4b7-a658b9fc0988" />
+<img width="100%" height="396" alt="Beige Modern Professional General Linkedin Banner" src="./src/machineLearning_Playground.png" />
 
 <br/>
 <br/>
