@@ -1,0 +1,56 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=latex 2026.3.25)  25 MAR 2026 13:18
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**./media/Tex/df6f96cfa0a6c093.tex
+(media/Tex/df6f96cfa0a6c093.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/standalone\standalone.cl
+s
+Document Class: standalone 2025/02/22 v1.5a Class to compile TeX sub-files stan
+dalone
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/tools\shellesc.sty
+Package: shellesc 2023/07/08 v1.0d unified shell escape interface for LaTeX
+Package shellesc Info: Restricted shell escape enabled on input line 77.
+) (C:\Users\User\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+)) (C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
+Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex (C
+:\Users\User\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex
+\XKV@toks=\toks17
+\XKV@tempa@toks=\toks18
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\keyval.tex))
+\XKV@depth=\count275
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+\sa@internal=\count276
+\c@sapage=\count277
+
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/standalone\standalone.cf
+g
+File: standalone.cfg 2025/02/22 v1.5a Default configuration file for 'standalon
+e' class
+! Interruption.
+<argument> \__file_size:n {preview.sty}
+                                       
+l.17 ...ptionsToPackage{active,tightpage}{preview}
+                                                  %
+You rang?
+Try to insert an instruction for me (e.g., `I\showlists'),
+unless you just want to quit by typing `X'.
+
+ 
+Here is how much of TeX's memory you used:
+ 638 strings out of 467872
+ 12406 string characters out of 5418886
+ 433730 words of memory out of 5000000
+ 29585 multiletter control sequences out of 15000+600000
+ 627721 words of font info for 40 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 57i,0n,71p,243b,22s stack positions out of 10000i,1000n,20000p,200000b,200000s
+No pages of output.
